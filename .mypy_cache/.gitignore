@@ -1,0 +1,16 @@
+# Python
+*.pyc
+__pycache__
+
+# Virtual environment
+venv/
+
+# Flask instance
+instance/
+
+# IDEs
+.vscode/
+.idea/
+
+# Databases
+*.db
