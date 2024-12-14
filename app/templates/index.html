@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Student Management System</h1>
+
+        <!-- Add Student Form -->
+        <form action="/add" method="post">
+            <label for="roll_no">Roll No:</label>
+            <input type="text" id="roll_no" name="roll_no" required><br><br>
+
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required><br><br>
+
+            <label for="class_name">Class:</label>
+            <input type="text" id="class_name" name="class_name" required><br><br>
+
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" name="dob" required><br><br>
+
+            <button type="submit">Add Student</button>
+        </form>
+
+        <!-- Display Students -->
+        <h2>Student List</h2>
+        <ul>
+            {% for student in students %}
+                <li>
+                    {{ student.name }} ({{ student.class_name }}) 
+                    <a href="{{ url_for('delete_student', id=student.id) }}">Delete</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
